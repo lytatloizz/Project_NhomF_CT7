@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/dashbroad', [HomeController::class, 'getUserById'])->name('dashbroad');
+Route::get('/timetable', [HomeController::class, 'getTimeTable'])->name('timetable');
+Route::post('/login', [HomeController::class, 'customLogin'])->name('login');
+Route::post('/register', [HomeController::class, 'customRegistration'])->name('register');
+Route::get('signout', [HomeController::class, 'signOut'])->name('signout');
+Route::get('/', function(){return view('login');});
+Route::get('/register', function(){return view('register');});
