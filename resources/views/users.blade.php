@@ -1,0 +1,38 @@
+
+@extends('index')
+
+@section('content')
+<table class="table table-striped table-bordered timetable">
+    <thead>
+        <tr class="info">
+            <th scope="col">#</th>
+            <th scope="col">Your Name</th>
+            <th scope="col">Your Phone Number</th>
+            <th scope="col">Email address</th>
+            <th scope="col">Your Avatar</th>
+            <th scope="col">Your type</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach($users as $user)
+            <tr>
+                <td>{{ $user->user_id }}</td>
+                <td>{{ $user->user_name }}</td>
+                <td>{{ $user->user_phone }}</td>
+                <td>{{ $user->user_email }}</td>
+
+                <td><img src="{{url('assets/img/'. $user->user_image)}}" alt="" style="height: 50px; width: 50px;"></td>
+                <td>{{ $user->user_rule }}</td>
+                <td>
+                    <a class="btn btn-warning" href="/users/update/{{ $user->id }}">Detail</a>
+                    <a class="btn btn-info" href="/users/update/{{ $user->id }}">Update</a>
+                    <a class="btn btn-danger" href="/users/delete/{{ $user->id }}">Delete</a>
+                <td>
+            </tr>
+    @endforeach
+    </tbody>
+</table>
+
+
+@endsection
