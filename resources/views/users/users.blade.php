@@ -25,9 +25,9 @@
                 <td><img src="{{url('assets/img/'. $user->user_image)}}" alt="" style="height: 50px; width: 50px;"></td>
                 <td>{{ $user->user_rule }}</td>
                 <td>
-                    <a class="btn btn-warning" href="/users/update/{{ $user->id }}">Detail</a>
-                    <a class="btn btn-info" href="/users/update/{{ $user->id }}">Update</a>
-                    <a class="btn btn-danger" href="/users/delete/{{ $user->id }}">Delete</a>
+                    <a class="btn btn-warning" href="{{ asset('/detail_users') }}/{{ $user->user_id }}">Detail</a>
+                    <a class="btn btn-info" href="{{ asset('/users_edit') }}/{{ $user->user_id }}">Update</a>
+                    <a class="btn btn-danger" href="{{ asset('/delete_users') }}/{{ $user->user_id }}">Delete</a>
                 <td>
             </tr>
     @endforeach
