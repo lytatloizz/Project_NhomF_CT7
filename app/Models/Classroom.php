@@ -11,4 +11,12 @@ class Classroom extends Model
     //primary key
     protected $primaryKey = 'classroom_id';
 
+     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'class_name'
+    ];
 }
