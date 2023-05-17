@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classroom;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -81,7 +83,7 @@ class HomeController extends Controller
             $user = User::find(Auth::id());
             return view('dashbroad', compact('user'));
         }
-        return redirect("login")->withSuccess('You are not allowed to access');
+        return redirect("/")->withSuccess('You are not allowed to access');
     }
     //Get subject by user_id
     function getTimeTable()
@@ -107,5 +109,32 @@ class HomeController extends Controller
             }
         }
         return view('timetable', compact('subjectS', 'checkclassroom'));
+    }
+    //Get all ClassRooms
+    function getAllClassRooms()
+    {
+        $classrooms = Classroom::all();
+        return view('add-subject', compact('classrooms'));
+    }
+    // -----------------------------Subjects----------------------------------
+    // Add new subject
+    function addSubject(Request $request)
+    {
+
+        $request->validate([
+            'end_at' => ['required', 'after:start_at']
+        ]);
+
+        $subject = new Subject;
+        $subject->subject_name = $request->subject_name;
+        $subject->subject_numbers = $request->subject_numbers;
+        $subject->subject_description = $request->subject_description;
+        $subject->start_at = $request->start_at;
+        $subject->end_at = $request->end_at;
+        $subject->week_day = $request->week_day;
+        $subject->classroom_id = $request->classrooms;
+        $subject->user_id = Auth::id();
+        $subject->save();
+        return $this->getUserById();
     }
 }

@@ -1,14 +1,3 @@
-<?php
-    function rule($rule){
-        if($rule == '0'){
-            echo "admin";
-        }elseif($rule == '1'){
-            echo "student";
-        }else{
-            echo "teacher";
-        }
-    }
-?>
 @extends('index')
 @section('content')
 <div id="page-inner user-info">

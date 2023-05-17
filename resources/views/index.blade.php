@@ -1,4 +1,9 @@
-﻿<?php use App\Models\User as ModelsUser;$name = ModelsUser::find(1)->user_name; ?>
+﻿<?php
+
+use App\Models\User as ModelsUser;
+use Illuminate\Support\Facades\Auth;
+
+$name = ModelsUser::find(Auth::id())->user_name; ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -15,6 +20,8 @@
     <link href="{{asset('assets/css/info-user.css')}}" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- TIMEPICKER -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 </head>
 
 <body>
@@ -49,7 +56,7 @@
                         <a href="/timetable"><i class="fa fa-table "></i>Timetable</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>Add new subject</a>
+                        <a href="/add-subject"><i class="fa fa-edit "></i>Add new subject</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-qrcode "></i>Check subjects regitsted</a>
@@ -102,7 +109,7 @@
             </div>
             <!-- /. PAGE INNER  -->
         </div>
-        
+
         <!-- /. PAGE WRAPPER  -->
     </div>
     <div class="footer">
@@ -122,6 +129,9 @@
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
+    <!-- TIMEPICKER -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script src="{{asset('assets/js/timepicker.js')}}"></script>
 </body>
 
 </html>

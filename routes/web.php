@@ -21,3 +21,5 @@ Route::post('/register', [HomeController::class, 'customRegistration'])->name('r
 Route::get('signout', [HomeController::class, 'signOut'])->name('signout');
 Route::get('/', function(){return view('login');});
 Route::get('/register', function(){return view('register');});
+Route::get('/add-subject', [HomeController::class, 'getAllClassRooms']);
+Route::post('/save-subject', [HomeController::class, 'addSubject'])->name('saveSubject');
