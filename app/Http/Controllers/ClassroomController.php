@@ -13,8 +13,9 @@ class ClassroomController extends Controller
 { 
     public function index(){
         // lấy ra toàn bộ classroom
-        $classrooms = Classroom::all();
+        $classrooms = Classroom::paginate(5);
         //dd($classrooms);
+        $classrooms->appends(['sort' => 'votes']);
 
         // trả về view hiển thị danh sách Classroom
         return view('classroom.classrooms', compact('classrooms'));

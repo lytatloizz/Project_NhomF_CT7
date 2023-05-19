@@ -9,7 +9,7 @@
         <input type="text" name="class_name" value="">
     </p>
     <p>
-        <button type="submit">Submit</button>
+        <button type="submit">Add Classroom</button>
     </p>
 </form>
 @endsection

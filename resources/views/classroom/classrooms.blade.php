@@ -28,4 +28,6 @@
     </tbody>
 </table>
 
+{{ $classrooms->links() }}
+
 @endsection
