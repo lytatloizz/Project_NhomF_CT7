@@ -33,7 +33,7 @@ class UserController extends Controller
     //Xoa users
     public function delete($id){
         // Tìm đến đối tượng muốn xóa
-        $user = User::simplePaginate(2);
+        $user = User::findOrFail($id);
 
         $user->delete();
         echo"success delete user";
