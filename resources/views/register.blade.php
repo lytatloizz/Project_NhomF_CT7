@@ -87,7 +87,7 @@
 
                         <div class="text-center text-lg-start mt-1">
                             <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">You really have an account? <a href="/" class="link-danger">Back to Login</a></p>
+                            <!-- <p class="small fw-bold mt-2 pt-1 mb-0">You really have an account? <a href="/" class="link-danger">Back to Login</a></p> -->
                         </div>
                     </form>
                 </div>

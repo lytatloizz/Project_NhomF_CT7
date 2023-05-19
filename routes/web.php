@@ -21,7 +21,7 @@ Route::post('/register', [HomeController::class, 'customRegistration'])->name('r
 Route::get('signout', [HomeController::class, 'signOut'])->name('signout');
 Route::get('/', function(){return view('login');});
 Route::get('/register', function(){return view('register');});
-//read Student
+//Student
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index']);
 Route::get('/detail_users/{id}', [App\Http\Controllers\UserController::class, 'detail']);
 Route::get('/delete_users/{id}', [App\Http\Controllers\UserController::class, 'delete']);
@@ -29,3 +29,6 @@ Route::get('/delete_users/{id}', [App\Http\Controllers\UserController::class, 'd
 
 Route::get('/users_edit/{id}', [App\Http\Controllers\UserController::class, 'edit']);
 Route::get('/usersedit/{id}', [App\Http\Controllers\UserController::class, 'update']);
+
+
+

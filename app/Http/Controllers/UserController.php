@@ -11,8 +11,11 @@ class UserController extends Controller
 {
     public function index(){
         // lấy ra toàn bộ user
-        $users = User::all();
+        //$users = User::all();
         //dd($users);
+        $users = User::simplePaginate(5);
+ 
+        $users->appends(['sort' => 'votes']);
 
         // trả về view hiển thị danh sách user
         return view('users.users', compact('users'));
@@ -30,7 +33,7 @@ class UserController extends Controller
     //Xoa users
     public function delete($id){
         // Tìm đến đối tượng muốn xóa
-        $user = User::findOrFail($id);
+        $user = User::simplePaginate(2);
 
         $user->delete();
         echo"success delete user";
