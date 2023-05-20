@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
 // Thêm thư viện để mã hóa password
@@ -13,12 +14,17 @@ class UserController extends Controller
         // lấy ra toàn bộ user
         //$users = User::all();
         //dd($users);
-        $users = User::simplePaginate(5);
+        if (Auth::check()) {
+            $users = User::simplePaginate(5);
  
-        $users->appends(['sort' => 'votes']);
+            $users->appends(['sort' => 'votes']);
 
-        // trả về view hiển thị danh sách user
-        return view('users.users', compact('users'));
+            // trả về view hiển thị danh sách user
+            return view('users.users', compact('users'));
+        }else{
+            return view("/");
+        }
+
     }
 
     //Chi tiet users
