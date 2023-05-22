@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,12 @@ Route::get('/delete_users/{id}', [App\Http\Controllers\UserController::class, 'd
 
 Route::get('/users_edit/{id}', [App\Http\Controllers\UserController::class, 'edit']);
 Route::get('/usersedit/{id}', [App\Http\Controllers\UserController::class, 'update']);
+
+//Tim kiem users
+Route::get('/users_search', function(){return view('users.users_search');});
+Route::get('search',[App\Http\Controllers\UserController::class,'getSearch']);
+
+
 
 
 

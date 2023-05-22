@@ -69,4 +69,10 @@ class UserController extends Controller
         echo"success update user";
         return redirect('/users');
     }
+    public function getSearch(Request $req){
+        $users = User::where('user_name','like','%'.$req->key.'%')
+                        ->orWhere('user_email','like','%'.$req->key.'%')
+                        ->get();
+        return view('users.search',compact('users'));
+    }
 }
