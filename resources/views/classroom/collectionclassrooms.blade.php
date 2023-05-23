@@ -1,20 +1,10 @@
 @extends('index')
 @section('content')
-<div class="row g-0">
-        <div class="col-md-2">
-            <div class="btnAdd">
-                <a class="btn btn-warning" href="/addClassrooms">Add New Classroom</a> 
-            </div>       
-        </div>
-        <div class="col-md-8">
-            <div class="btnAdd">
-                 <a class="btn btn-info" href="/collectionClassrooms">Sắp xếp Classroom</a> 
-            </div> 
-        </div>
+<h2>Sắp xếp Classroom</h2>
+<div class="btnAdd">
+    <a class="btn btn-warning" href="/addClassrooms">Add New Classroom</a> 
     </div>
-
 <br>
-
 <table class="table table-striped table-bordered timetable">
     <thead>
         <tr class="info">
@@ -36,7 +26,4 @@
         @endforeach
     </tbody>
 </table>
-
-{{ $classrooms->links() }}
-
 @endsection

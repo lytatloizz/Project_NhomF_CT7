@@ -73,4 +73,14 @@ class ClassroomController extends Controller
         echo"success update Classroom";
         return redirect('/classrooms');
     }
+
+    //Sap xep classroom
+     //Sap xep theo user_name
+     public function sapXepClassroom(){
+        $classrooms = Classroom::all();
+        //$classrooms = Classroom::simplePaginate(5);
+        $classrooms = $classrooms->sortBy('class_name');
+        $classrooms->values()->all();
+        return view('classroom.collectionclassrooms', compact('classrooms'));
+    }
 }

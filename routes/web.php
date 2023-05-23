@@ -36,3 +36,5 @@ Route::get('/deleteClassrooms/{classroom_id}', [ClassroomController::class, 'del
 Route::get('/updateClassrooms/{classroom_id}', [ClassroomController::class, 'editClassroom']);
 Route::post('/update-Classrooms/{classroom_id}', [ClassroomController::class, 'updateClassroom']);
 
+//Sap xep Classroom
+Route::get('/collectionClassrooms', [ClassroomController::class, 'sapXepClassroom']);
