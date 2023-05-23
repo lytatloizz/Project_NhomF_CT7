@@ -69,10 +69,21 @@ class UserController extends Controller
         echo"success update user";
         return redirect('/users');
     }
+
+    //Tim kiem theo user_name or user_email
     public function getSearch(Request $req){
         $users = User::where('user_name','like','%'.$req->key.'%')
                         ->orWhere('user_email','like','%'.$req->key.'%')
                         ->get();
         return view('users.search',compact('users'));
+    }
+
+    //Sap xep theo user_name
+    public function sapXepUsers(){
+        $users = User::all();
+        //$users = User::simplePaginate(5);
+        $users = $users->sortBy('user_name');
+        $users->values()->all();
+        return view('users.collectionUsers', compact('users'));
     }
 }

@@ -2,6 +2,7 @@
 @extends('index')
 
 @section('content')
+<h2>Sắp xếp User</h2>
 <div class="btnSearch">
      <a href="/users_search" class="btn btn-warning"><i class="fa fa-search "></i> Search Users</a> 
 </div>
@@ -38,9 +39,4 @@
     </tbody>
     
 </table>
-{{ $users->links() }}
-<div class="btnCollection">
-     <a href="/sapXepUsers" class="btn btn-info"><i class="fa"></i> Sắp Xếp Users</a> 
-</div>
-
 @endsection

@@ -36,6 +36,8 @@ Route::get('/usersedit/{id}', [App\Http\Controllers\UserController::class, 'upda
 Route::get('/users_search', function(){return view('users.users_search');});
 Route::get('search',[App\Http\Controllers\UserController::class,'getSearch']);
 
+//Sap xep user
+Route::get('/sapXepUsers',[App\Http\Controllers\UserController::class,'sapXepUsers']);
 
 
 
