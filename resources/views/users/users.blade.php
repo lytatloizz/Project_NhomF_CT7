@@ -2,9 +2,18 @@
 @extends('index')
 
 @section('content')
-<div class="btnSearch">
-     <a href="/users_search" class="btn btn-warning"><i class="fa fa-search "></i> Search Users</a> 
-</div>
+    <div class="row g-0">   
+        <div class="col-md-2">
+            <div class="btnSearch">
+                 <a href="/users_search" class="btn btn-warning"><i class="fa fa-search "></i> Search Users</a> 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="btnCollection">
+                <a href="/sapXepUsers" class="btn btn-info"><i class="fa-duotone fa-arrow-up"></i> Sắp Xếp Users</a> 
+            </div>   
+        </div>
+    </div>
 <br>
 <table class="table table-striped table-bordered timetable">
     <thead>
@@ -39,8 +48,5 @@
     
 </table>
 {{ $users->links() }}
-<div class="btnCollection">
-     <a href="/sapXepUsers" class="btn btn-info"><i class="fa"></i> Sắp Xếp Users</a> 
-</div>
 
 @endsection
