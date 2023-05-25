@@ -1,4 +1,5 @@
-﻿<?php use App\Models\User as ModelsUser;$name = ModelsUser::find(1)->user_name; ?>
+﻿<?php use App\Models\User as ModelsUser;$name = ModelsUser::find(1)->user_name;
+ ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 

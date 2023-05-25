@@ -1,22 +1,20 @@
-<?php
-    function rule($rule){
-        if($rule == '0'){
-            echo "";
-        }elseif($rule == '1'){
-            echo "";
-        }
-        return "";
-    }
-?>
+@if(isset($user) && isset($user->user_rule))
+    <?php
+    $user_rule = $user->user_rule;
+
+    ?>
+@endif
+
 @extends('index')
 @section('content')
 
 <?php
-    if(rule($users->user_rule) == '0'){ ?>
+    if ($users->user_rule == '0') {
+?>
 
-        <div class="btnAdd">
-            <a class="btn btn-warning" href="{{route('add.notification')}}">Add New Notification</a> 
-        </div>
+    <div class="btnAdd">
+        <a class="btn btn-warning" href="{{ route('add.notification') }}">Add New Notification</a> 
+    </div>
 <?php } ?>
 <br>
 
@@ -38,11 +36,12 @@
             <td>{{ Str::limit(strip_tags($notifications->title), 50, '...') }}</td>
             <td>
             <?php
-                if(rule($users->user_rule) !== '0'){ ?>
-                    <a class="btn btn-primary" href="{{ route('detail.notification', $notifications->id) }}">Detail</a>
-                <?php } else { ?>
+                if ($users->user_rule == '0') { ?>
                     <a class="btn btn-success" href="{{ route('edit.notification', $notifications->id) }}">Edit</a>  
                     <a class="btn btn-danger" href="{{ route('delete.notification', $notifications->id) }}">Delete</a>
+                    <a class="btn btn-primary" href="{{ route('detail.notification', $notifications->id) }}">Detail</a>
+                <?php } else { ?>
+
                     <a class="btn btn-primary" href="{{ route('detail.notification', $notifications->id) }}">Detail</a>
                 <?php } ?>
             </td>   
@@ -51,13 +50,9 @@
     
     </tbody>
 </table>
-<!-- Hiển thị liên kết phân trang -->
 
 <div class="pagination">
     <span class="pagination-item">Trang {{ $notification->currentPage() }} trên {{ $notification->lastPage() }}</span>
     {{ $notification->links() }}
 </div>
-{{-- 
-{{ $notification->links() }} --}}
-
 @endsection

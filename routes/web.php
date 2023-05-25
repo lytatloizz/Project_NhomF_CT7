@@ -39,4 +39,4 @@ Route::get('delete/notification/{id}', [NotificationController::class, 'DeleteNo
 Route::get('detail/notification/{id}', [NotificationController::class, 'DetailNotification'])->name('detail.notification');
 
 
-Route::get('detail/notification/{id}', [NotificationController::class, 'DetailNotification'])->name('detail.notification');
+Route::get('/notification', 'NotificationController@index')->name('notification.index');
