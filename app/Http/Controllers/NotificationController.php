@@ -14,8 +14,9 @@ class NotificationController extends Controller
     {
       
         $notification = Notification::orderBy('name', 'asc')->paginate(5);
-
-        return view('notification.index', compact('notification'));
+        $users = Auth::user();
+        return view('notification.index', compact('notification', 'users'));
+        //return view('notification.index', compact('notification'));
     }
 
     public function AddNotification()
