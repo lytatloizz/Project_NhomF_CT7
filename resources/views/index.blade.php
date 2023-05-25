@@ -64,7 +64,7 @@
                         <a href="#"><i class="fa fa-user "></i>Add new user </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-info-circle "></i>Notification</a>
+                        <a href="{{route('all.notification')}}"><i class="fa fa-info-circle "></i>Notification</a>
                     </li>
                     <li>
                         <a href="/classrooms"><i class="fa fa-info-circle "></i>List Classroom</a>
