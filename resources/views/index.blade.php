@@ -49,7 +49,7 @@
                         <a href="/timetable"><i class="fa fa-table "></i>Timetable</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-edit "></i>Add new subject</a>
+                        <a href="#"><i class="fa fa-edit "></i>Show list of students</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-qrcode "></i>Check subjects regitsted</a>
@@ -58,10 +58,10 @@
                         <a href="#"><i class="fa fa-plus "></i>Regitster new subjects</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-users"></i>List users</a>
+                        <a href="/users"><i class="fa fa-users"></i>List Student</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user "></i>Add new user </a>
+                        <a href="/register"><i class="fa fa-user "></i>Add new Student </a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-info-circle "></i>Notification</a>

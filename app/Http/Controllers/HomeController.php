@@ -45,7 +45,7 @@ class HomeController extends Controller
         $data = $request->all();
         $this->create($data);
 
-        return Redirect('/');
+        return Redirect('/users');
     }
 
     public function create(array $data)
