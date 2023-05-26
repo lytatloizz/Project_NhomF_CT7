@@ -18,7 +18,7 @@
             <div class="col-12">Email: {{$user->user_email}}</div>
         </div>
         <div class="col-lg-4 user-info-image">
-            <img src="{{asset('assets/img/' . $user->user_image)}}" alt="">
+            <img class="rounded-circle avatar-xl" src="{{ (! empty($user->user_image)) ? url('upload/user_images/' . $user->user_image):url('upload/no_image.jpg') }}" alt="Card image cap">
         </div>
     </div>
     <div class="row">

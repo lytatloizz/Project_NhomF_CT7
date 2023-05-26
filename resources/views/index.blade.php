@@ -45,6 +45,12 @@
                     <li class="active-link">
                         <a href="/dashbroad"><i class="fa fa-desktop "></i>Dashboard</a>
                     </li>
+                    <li class="active-link">
+                        <a href="{{route('profile.dashbroad')}}"><i class="fa fa-user "></i>Profile</a>
+                    </li>
+                    <li class="active-link">
+                        <a href="{{route('change.password')}}"><i class="fa fa-key "></i>Change Password</a>
+                    </li>
                     <li>
                         <a href="/timetable"><i class="fa fa-table "></i>Timetable</a>
                     </li>
