@@ -29,7 +29,6 @@
                         <!-- Name input -->
                         <div class="form-outline mb-3">
                             <input type="text" name="user_name" class="form-control form-control-md" placeholder="Enter a valid name" required />
-                            <label class="form-label" for="form3Example3">Your Name</label>
                             @if ($errors->has('user_name'))
                             <span class="text-danger">{{ $errors->first('user_name') }}</span>
                             @endif
@@ -39,24 +38,25 @@
                         <div class="form-outline mb-3">
                             <input type="number" name="user_phone" class="form-control form-control-md" placeholder="Enter a valid phone number" required />
                             <label class="form-label" for="form3Example3">Your Phone Number</label>
+                            <input type="tel" name="user_phone" class="form-control form-control-md" placeholder="Enter a valid phone number" required />
                             @if ($errors->has('user_phone'))
                             <span class="text-danger">{{ $errors->first('user_phone') }}</span>
                             @endif
                         </div>
 
-                        <!-- Email input -->
-                        <div class="form-outline mb-3">
-                            <input type="email" name="user_email" class="form-control form-control-md" placeholder="Enter a valid email address" required />
-                            <label class="form-label" for="form3Example3">Email address</label>
-                            @if ($errors->has('user_email'))
-                            <span class="text-danger">{{ $errors->first('user_email') }}</span>
-                            @endif
-                        </div>
+                       <!-- Email input -->
+                       <div class="form-outline mb-3">
+                           <label class="form-label" for="form3Example3">Email address</label>
+                        <input type="email" name="user_email" class="form-control form-control-md" placeholder="Enter a valid email address" required />
+                        @if ($errors->has('user_email'))
+                        <span class="text-danger">{{ $errors->first('user_email') }}</span>
+                        @endif
+                    </div>
 
                         <!-- Imgae input -->
                         <div class="form-outline mb-3">
+                            <label class="form-label" for="form3Example3">Chose Your Avatar</label>
                             <input type="file" name="user_image" class="form-control form-control-md" required />
-                            <label class="form-label" for="form3Example3">Choose Your Avatar</label>
                             @if ($errors->has('user_image'))
                             <span class="text-danger">{{ $errors->first('user_image') }}</span>
                             @endif
@@ -76,8 +76,8 @@
 
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                            <input type="password" name="password" class="form-control form-control-md" required />
                             <label class="form-label">Password</label>
+                            <input type="password" name="password" class="form-control form-control-md" required />
                             @if ($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif
@@ -96,7 +96,7 @@
         <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
             <!-- Copyright -->
             <div class="text-white mb-3 mb-md-0">
-                Copyright © 2020. All rights reserved.
+                Copyright © 2023. All rights reserved.
             </div>
             <!-- Copyright -->
 

@@ -30,8 +30,8 @@
                         <div class="form-outline mb-4">
                             <input type="email" id="form3Example3" name="user_email" class="form-control form-control-lg" placeholder="Enter a valid email address" />
                             <label class="form-label" for="form3Example3">Email address</label>
-                            @if ($errors->has('email'))
-                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                            @if ($errors->has('user_email'))
+                            <span class="text-danger">{{ $errors->first('user_email') }}</span>
                             @endif
                         </div>
 
@@ -52,7 +52,7 @@
                                     Remember me
                                 </label>
                             </div>
-                            <a href="#!" class="text-body">Forgot password?</a>
+                            <a href="#" class="text-body">Forgot password?</a>
                         </div>
 
                         <div class="text-center text-lg-start mt-4 pt-2">

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('user_phone');
             $table->string('user_image')->nullable();
-            $table->tinyInteger('user_rule');//0-admin 1-student 2-teacher
+            $table->tinyInteger('user_rule'); //0-admin 1-student 2-teacher
             $table->rememberToken();
             $table->timestamps();
         });

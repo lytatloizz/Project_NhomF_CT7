@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserEmail;
 
 class HomeController extends Controller
 {
@@ -45,7 +47,9 @@ class HomeController extends Controller
         $data = $request->all();
         $this->create($data);
 
-        return Redirect('/users');
+        $this->send_email($request);
+
+        return Redirect('/');
     }
 
     public function create(array $data)
@@ -107,5 +111,10 @@ class HomeController extends Controller
             }
         }
         return view('timetable', compact('subjectS', 'checkclassroom'));
+    }
+
+    function send_email(Request $request)
+    {
+        Mail::to($request->user_email)->send(new UserEmail($request));
     }
 }
