@@ -1,6 +1,6 @@
 @extends('index')
 @section('content')
-<h1>Add Classroom</h1><br>
+<h1>Edit Classroom</h1><br>
 
     <form action="{{route('update.notification')}}" method="post" enctype="multipart/form-data">
         @csrf

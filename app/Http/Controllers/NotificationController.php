@@ -7,10 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
+
 class NotificationController extends Controller
 {
 
-        public function index()
+     public function index()
     {
       
         $notification = Notification::orderBy('name', 'asc')->paginate(5);
@@ -35,6 +36,7 @@ class NotificationController extends Controller
         Notification::insert([
             'name' => $request->name,
             'title' => $request->title,
+            'created_at'=> date('Y-m-d')
         ]);
 
         $notification = array(
