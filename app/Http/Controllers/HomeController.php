@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
-
     //Login checked
     public function customLogin(Request $request)
     {
@@ -28,9 +27,7 @@ class HomeController extends Controller
         }
         return redirect("register")->withSuccess('Login details are not valid');
     }
-
     //Register custom
-
     public function customRegistration(Request $request)
     {
         $request->validate([
@@ -88,53 +85,71 @@ class HomeController extends Controller
     //Get subject by user_id
     function getTimeTable()
     {
-        //
-        $subjectS = array(); //ket qua cuoi cung
-        $checkclassroom = array(); //kiem tra class da lay ra chua
-        $subjects = Subject::findbyuserid(Auth::id())->get(); //lay mon hoc theo user id
-        foreach ($subjects as $subject) {
-            //Kiem tra class da ton tai hay chua
-            if (in_array($subject->classroom_id, $checkclassroom) == false) {
-                //luu ket qua kiem tra
-                array_push($checkclassroom, $subject->classroom_id);
-                //lay mon hoc theo class
-                $getSubjectsbyClassroom = Subject::findbyclassroomid($subject->classroom_id)->get();
-                if (count($getSubjectsbyClassroom) > 1) {
-                    foreach ($getSubjectsbyClassroom as $subjec) {
-                        $subjectS[$subjec->classroom_id][] = $subjec;
+        if (Auth::check()) {
+            $subjectS = array(); //ket qua cuoi cung
+            $checkclassroom = array(); //kiem tra class da lay ra chua
+            $subjects = Subject::findbyuserid(Auth::id())->get(); //lay mon hoc theo user id
+            foreach ($subjects as $subject) {
+                //Kiem tra class da ton tai hay chua
+                if (in_array($subject->classroom_id, $checkclassroom) == false) {
+                    //luu ket qua kiem tra
+                    array_push($checkclassroom, $subject->classroom_id);
+                    //lay mon hoc theo class
+                    $getSubjectsbyClassroom = Subject::findbyclassroomid($subject->classroom_id)->get();
+                    if (count($getSubjectsbyClassroom) > 1) {
+                        foreach ($getSubjectsbyClassroom as $subjec) {
+                            $subjectS[$subjec->classroom_id][] = $subjec;
+                        }
+                    } else {
+                        $subjectS[$subject->classroom_id] = $getSubjectsbyClassroom;
                     }
-                } else {
-                    $subjectS[$subject->classroom_id] = $getSubjectsbyClassroom;
                 }
             }
+            return view('timetable', compact('subjectS', 'checkclassroom'));
         }
-        return view('timetable', compact('subjectS', 'checkclassroom'));
+        return redirect("/")->withSuccess('You are not allowed to access');
     }
     //Get all ClassRooms
     function getAllClassRooms()
     {
         $classrooms = Classroom::all();
-        return view('add-subject', compact('classrooms'));
+        return view('subject.add-subject', compact('classrooms'));
     }
     // -----------------------------Subjects----------------------------------
+
     // Add new subject
     function addSubject(Request $request)
     {
-
-        $request->validate([
-            'end_at' => ['required', 'after:start_at']
-        ]);
-
-        $subject = new Subject;
-        $subject->subject_name = $request->subject_name;
-        $subject->subject_numbers = $request->subject_numbers;
-        $subject->subject_description = $request->subject_description;
-        $subject->start_at = $request->start_at;
-        $subject->end_at = $request->end_at;
-        $subject->week_day = $request->week_day;
-        $subject->classroom_id = $request->classrooms;
-        $subject->user_id = Auth::id();
-        $subject->save();
-        return $this->getUserById();
+        Subject::addsubject($request);
+        return $this->getAllSubjects();
+    }
+    // Edit subject
+    function editSubject(Request $request){
+        Subject::editsubjectbyid($request);
+        return $this->getAllById();
+    }
+    // Delete subject by subject id
+    function deleteSubject($id){
+        Subject::deletelsubjectbyid($id);
+        return $this->getAllById();
+    }
+    // Get all subjects
+    function getAllSubjects()
+    {
+        $subjects = Subject::all();
+        return view('subject.register-subject', compact('subjects'));
+    }
+    // Get all subjects ORTHER by user id
+    function getAllById()
+    {
+        $subjects = Subject::findbyuserid(Auth::id())->get();
+        return view('subject.checked-subject', compact('subjects'));
+    }
+    // Get subject by subject id
+    function getSubjectById($id)
+    {
+        $classrooms = Classroom::all();
+        $subject = Subject::find($id);
+        return view('subject.edit-subject', compact('subject', 'classrooms'));
     }
 }

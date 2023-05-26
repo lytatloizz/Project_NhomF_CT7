@@ -1,5 +1,4 @@
 ﻿<?php
-
 use App\Models\User as ModelsUser;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,8 +35,7 @@ $name = ModelsUser::find(Auth::id())->user_name; ?>
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img src="assets/img/logo.png" />
-
+                        <img src="{{asset('assets/img/logo.png')}}" />
                     </a>
                 </div>
                 <span class="logout-spn">
@@ -59,10 +57,10 @@ $name = ModelsUser::find(Auth::id())->user_name; ?>
                         <a href="/add-subject"><i class="fa fa-edit "></i>Add new subject</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-qrcode "></i>Check subjects regitsted</a>
+                        <a href="/subjects-regitsted"><i class="fa fa-qrcode "></i>Check subjects regitsted</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-plus "></i>Regitster new subjects</a>
+                        <a href="/register-subject"><i class="fa fa-plus "></i>Regitster new subjects</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-users"></i>List users</a>
