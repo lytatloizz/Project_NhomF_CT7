@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClassroomController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 
@@ -23,6 +24,22 @@ Route::post('/register', [HomeController::class, 'customRegistration'])->name('r
 Route::get('signout', [HomeController::class, 'signOut'])->name('signout');
 Route::get('/', function(){return view('login');});
 Route::get('/register', function(){return view('register');});
+
+Route::get('/classrooms', [ClassroomController::class, 'index']);
+Route::get('/detail_classroom/{classroom_id}', [ClassroomController::class, 'DetailClassroom']);
+
+
+Route::get('/addClassrooms', [ClassroomController::class, 'create']);
+Route::get('/add-Classrooms', [ClassroomController::class, 'store'])->name('addClassrooms');
+
+
+Route::get('/deleteClassrooms/{classroom_id}', [ClassroomController::class, 'delete']);
+
+Route::get('/updateClassrooms/{classroom_id}', [ClassroomController::class, 'editClassroom']);
+Route::post('/update-Classrooms/{classroom_id}', [ClassroomController::class, 'updateClassroom']);
+
+//Sap xep Classroom
+Route::get('/collectionClassrooms', [ClassroomController::class, 'sapXepClassroom']);
 //Student
 Route::get('/users', [App\Http\Controllers\UserController::class, 'index']);
 Route::get('/detail_users/{id}', [App\Http\Controllers\UserController::class, 'detail']);

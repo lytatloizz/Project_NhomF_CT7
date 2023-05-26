@@ -66,6 +66,9 @@
                     <li>
                         <a href="#"><i class="fa fa-info-circle "></i>Notification</a>
                     </li>
+                    <li>
+                        <a href="/classrooms"><i class="fa fa-info-circle "></i>List Classroom</a>
+                    </li>
                 </ul>
             </div>
 
