@@ -50,6 +50,12 @@ class User extends Authenticatable implements MustVerifyEmail
     //primary key
     protected $primaryKey = 'user_id';
 
+    //relationship 
+    public function subjects()
+    {
+        return $this->hasMany(Subject::class);
+    }
+
     //---------------------------------------FUNCTION----------------------------
 
 

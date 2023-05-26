@@ -27,7 +27,7 @@
                 <td>{{ $user->user_phone }}</td>
                 <td>{{ $user->user_email }}</td>
 
-                <td><img src="{{url('assets/img/'. $user->user_image)}}" alt="" style="height: 50px; width: 50px;"></td>
+                <td><img src="{{ asset('assets/img/'. $user->user_image) }}" alt="" style="height: 50px; width: 50px;"></td>
                 <td>{{ $user->user_rule }}</td>
                 <td>
                     <a class="btn btn-warning" href="{{ asset('/detail_users') }}/{{ $user->user_id }}">Detail</a>

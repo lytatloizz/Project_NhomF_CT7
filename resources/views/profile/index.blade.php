@@ -3,7 +3,7 @@
 <div id="page-inner user-info">
     <div class="row">
         <div class="col-lg-4 user-info-image">
-            <img class="rounded-circle avatar-xl" style="width: 50%" src="{{ (! empty($user->user_image)) ? url('upload/user_images/' . $user->user_image):url('upload/no_image.jpg') }}" alt="Card image cap">
+            <img class="rounded-circle avatar-xl" style="width: 50%" src="{{ asset('assets/img/'. $user->user_image) }}" alt="Card image cap">
         </div>
         <div class="col-lg-7">
             <div class="col-12">Name: {{$user->user_name}}</div>

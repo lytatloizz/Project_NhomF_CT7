@@ -20,15 +20,11 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/dashboard', function() {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashbroad');
+//ERRROR PAGE
+Route::get('/error', [HomeController::class, 'errorPage']);
 
-Route::get('/dashbroad', [HomeController::class, 'getUserById'])->name('dashbroad');
-Route::get('/timetable', [HomeController::class, 'getTimeTable'])->name('timetable');
+//Login
 Route::post('/login', [HomeController::class, 'customLogin'])->name('login');
-Route::post('/register', [HomeController::class, 'customRegistration'])->name('register');
-Route::get('signout', [HomeController::class, 'signOut'])->name('signout');
 Route::get('/', function(){return view('login');});
 Route::get('/register', function(){return view('register');});
 
@@ -84,3 +80,17 @@ Route::post('user/profile/store-profile', [ProfileController::class, 'StoreProfi
 //Change Password
 Route::get('user/change-password', [ChangePasswordController::class, 'ChangePassword'])->name('change.password');
 Route::post('user/change-password/update', [ChangePasswordController::class, 'UpdatePassword'])->name('update.password');
+Route::get('signout', [HomeController::class, 'signOut'])->name('signout');
+//User
+Route::get('/dashbroad', [HomeController::class, 'getUserById'])->name('dashbroad');
+Route::post('/register', [HomeController::class, 'customRegistration'])->name('register');
+Route::get('/register', function(){return view('register');});
+//Subject
+Route::get('/timetable', [HomeController::class, 'getTimeTable'])->name('timetable');
+Route::get('/add-subject', [HomeController::class, 'getAllClassRooms']);
+Route::get('/edit-subject/{id}', [HomeController::class, 'getSubjectById']);
+Route::post('/save-subject', [HomeController::class, 'addSubject'])->name('saveSubject');
+Route::post('/edit-subject', [HomeController::class, 'editSubject'])->name('editSubject');
+Route::get('/delete-subject/{id}', [HomeController::class, 'deleteSubject']);
+Route::get('/register-subject', [HomeController::class, 'getAllSubjects']);
+Route::get('/subjects-regitsted', [HomeController::class, 'getAllById']);

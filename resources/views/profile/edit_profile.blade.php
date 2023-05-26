@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label for="formFileLg" class="form-label"></label>
-                    <img id="showImage" class="rounded avatar-lg" style="width: 80px" src="{{ (!empty($editData->user_image)) ? url('upload/user_images/'.$editData->user_image):url('upload/no_image.jpg') }}" alt="Card image cap">
+                    <img id="showImage" class="rounded avatar-lg" style="width: 80px" src="{{ asset('assets/img/'. $editData->user_image) }}" alt="Card image cap">
                 </div>
                 <div class="btn">
                     <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Profile">

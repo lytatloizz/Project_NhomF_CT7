@@ -36,9 +36,8 @@
 
                         <!-- Phone input -->
                         <div class="form-outline mb-3">
-                            <input type="number" name="user_phone" class="form-control form-control-md" placeholder="Enter a valid phone number" required />
                             <label class="form-label" for="form3Example3">Your Phone Number</label>
-                            <input type="tel" name="user_phone" class="form-control form-control-md" placeholder="Enter a valid phone number" required />
+                            <input type="number" name="user_phone" class="form-control form-control-md" placeholder="Enter a valid phone number" required />
                             @if ($errors->has('user_phone'))
                             <span class="text-danger">{{ $errors->first('user_phone') }}</span>
                             @endif

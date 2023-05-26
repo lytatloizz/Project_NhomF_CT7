@@ -7,7 +7,7 @@
         <div class="row g-0">
             <input type="hidden" name="id" value="{{ $users->id }}">
             <div class="col-md-6">
-                <img src="{{url('assets/img/' . $users->user_image)}}" class="img-fluid rounded-start" alt="..." style="height: 200px; width: 200px;">
+                <img src="{{ asset('assets/img/'. $users->user_image) }}" class="img-fluid rounded-start" alt="..." style="height: 200px; width: 200px;">
             </div>
             <div class="col-md-6">
                 <div class="card-body">
