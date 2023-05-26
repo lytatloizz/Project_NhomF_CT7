@@ -22,8 +22,8 @@
                 <input type="hidden" name="subject_numbers" value="{{$subject->subject_numbers}}">
                 <input type="hidden" name="start_at" value="{{$subject->start_at}}">
                 <input type="hidden" name="end_at" value="{{$subject->end_at}}">
-                <input type="hidden" name="week_day" value="{{week_day($subject->week_day)}}">
-                <input type="hidden" name="classroom_id" value="{{$subject->classroom_id}}">
+                <input type="hidden" name="week_day" value="{{$subject->week_day}}">
+                <input type="hidden" name="classrooms" value="{{$subject->classroom_id}}">
                 <th>{{$subject->subject_id}}</th>
                 <th>{{$subject->subject_name}}</th>
                 <th>{{week_day($subject->week_day)}}</th>

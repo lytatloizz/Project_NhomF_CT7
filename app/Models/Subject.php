@@ -23,7 +23,10 @@ class Subject extends Model
     //Get subject by class room id
     function scopeFindByClassroomId(Builder $query, $class_id)
     {
-        return $query->where('classroom_id', $class_id);
+        return $query->where([
+            ['classroom_id', $class_id],
+            ['user_id', Auth::id()],
+        ]);
     }
     //Get subject by user id
     function scopeFindByUserId(Builder $query, $user_id)

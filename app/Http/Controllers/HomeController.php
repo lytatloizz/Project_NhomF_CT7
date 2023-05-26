@@ -27,7 +27,7 @@ class HomeController extends Controller
             return redirect()->intended('dashbroad')
                 ->withSuccess('Signed in');
         }
-        return redirect("register")->withSuccess('Login details are not valid');
+        return redirect("/")->withSuccess('Login details are not valid');
     }
     //Register custom
     public function customRegistration(Request $request)
@@ -140,7 +140,7 @@ class HomeController extends Controller
     // Get all subjects
     function getAllSubjects()
     {
-        $subjects = Subject::all();
+        $subjects = Subject::where('user_id', '!=', Auth::id())->get();
         return view('subject.register-subject', compact('subjects'));
     }
     // Get all subjects ORTHER by user id

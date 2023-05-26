@@ -1,7 +1,6 @@
 <?php
 use App\Models\User as ModelsUser;
 use Illuminate\Support\Facades\Auth;
-
 $name = ModelsUser::find(Auth::id())->user_name; ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -50,24 +49,29 @@ $name = ModelsUser::find(Auth::id())->user_name; ?>
                     <li class="active-link">
                         <a href="/dashbroad"><i class="fa fa-desktop "></i>Dashboard</a>
                     </li>
-                    <li class="active-link">
+                    <li>
                         <a href="{{route('profile.dashbroad')}}"><i class="fa fa-user "></i>Profile</a>
                     </li>
-                    <li class="active-link">
+                    <li>
                         <a href="{{route('change.password')}}"><i class="fa fa-key "></i>Change Password</a>
                     </li>
                     <li>
                         <a href="/timetable"><i class="fa fa-table "></i>Timetable</a>
                     </li>
+                    @if(rule_number() != 1)
                     <li>
                         <a href="/add-subject"><i class="fa fa-edit "></i>Add new subject</a>
                     </li>
+                    @endif
                     <li>
                         <a href="/subjects-regitsted"><i class="fa fa-qrcode "></i>Check subjects regitsted</a>
                     </li>
+                    @if(rule_number() != 2)
                     <li>
                         <a href="/register-subject"><i class="fa fa-plus "></i>Regitster new subjects</a>
                     </li>
+                    @endif
+                    @if(rule_number() == 0)
                     <li>
                         <a href="/users"><i class="fa fa-users"></i>List Student</a>
                     </li>
@@ -75,10 +79,11 @@ $name = ModelsUser::find(Auth::id())->user_name; ?>
                         <a href="/register"><i class="fa fa-user "></i>Add new Student </a>
                     </li>
                     <li>
-                        <a href="{{route('all.notification')}}"><i class="fa fa-info-circle "></i>Notification</a>
-                    </li>
-                    <li>
                         <a href="/classrooms"><i class="fa fa-info-circle "></i>List Classroom</a>
+                    </li>
+                    @endif
+                    <li>
+                        <a href="{{route('all.notification')}}"><i class="fa fa-info-circle "></i>Notification</a>
                     </li>
                 </ul>
             </div>
@@ -136,6 +141,7 @@ $name = ModelsUser::find(Auth::id())->user_name; ?>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
+    <script src="{{asset('assets/js/confirm.js')}}"></script>
     <!-- TIMEPICKER -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
     <script src="{{asset('assets/js/timepicker.js')}}"></script>
