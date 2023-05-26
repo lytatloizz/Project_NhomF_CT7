@@ -20,10 +20,15 @@
             <td>{{ $classroom->class_name }}</td>
             <td><a class="btn btn-info" href="{{ asset('detail_classroom') }}/{{ $classroom->classroom_id }}">Detail</a>
                 <a class="btn btn-success" href="{{ asset('updateClassrooms') }}/{{ $classroom->classroom_id }}">Edit</a>
-                <a class="btn btn-primary" href="{{ asset('deleteClassrooms') }}/{{ $classroom->classroom_id }}" onclick="s_delete()">Delete</a>
+                <a class="btn btn-primary" href="{{ asset('deleteClassrooms') }}/{{ $classroom->classroom_id }}" onclick="return confirmDelete()">Delete</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+<script>
+    function confirmDelete() {
+        return confirm("Lưu ý: nếu xóa lớp học này thì tất cả dự liệu liên quan sẽ biến mất.\nBạn đã chắc chắn chưa?");
+    }
+</script>
 @endsection

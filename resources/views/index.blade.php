@@ -141,7 +141,6 @@ $name = ModelsUser::find(Auth::id())->user_name; ?>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
-    <script src="{{asset('assets/js/confirm.js')}}"></script>
     <!-- TIMEPICKER -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
     <script src="{{asset('assets/js/timepicker.js')}}"></script>
