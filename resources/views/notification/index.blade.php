@@ -40,11 +40,11 @@
             <?php
                 if ($users->user_rule == '0') { ?>
                     <a class="btn btn-success" href="{{ route('edit.notification', $notifications->id) }}">Edit</a>  
-                    <a class="btn btn-danger" href="{{ route('delete.notification', $notifications->id) }}">Delete</a>
+                    <a class="btn btn-danger" href="{{ route('delete.notification', $notifications->id) }}"  onclick="return confirmDelete()">Delete</a>
                     <a class="btn btn-primary" href="{{ route('detail.notification', $notifications->id) }}">Detail</a>
                 <?php } else { ?>
 
-                    <a class="btn btn-primary" href="{{ route('detail.notification', $notifications->id) }}">Detail</a>
+                    <a class="btn btn-primary" href="{{ route('detail.notification', $notifications->id) }}" >Detail</a>
                 <?php } ?>
             </td>   
         </tr>
@@ -52,7 +52,11 @@
     
     </tbody>
 </table>
-
+<script>
+    function confirmDelete() {
+        return confirm("Bạn muốn xóa thông báo này?");
+    }
+</script>
 <div class="pagination">
     <span class="pagination-item">Trang {{ $notification->currentPage() }} trên {{ $notification->lastPage() }}</span>
     {{ $notification->links() }}
