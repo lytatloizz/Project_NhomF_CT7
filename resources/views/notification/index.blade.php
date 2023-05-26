@@ -25,6 +25,7 @@
             <th scope="col">ID</th>
             <th scope="col">Notification Name</th>
             <th scope="col">Notification Title</th>
+            <th scope="col">Day of Writing</th>
             <th scope="col">Status</th>        
         </tr>
     </thead>
@@ -33,7 +34,8 @@
         <tr>
             <td>{{$key + 1 }}</td>
             <td>{{ Str::limit(strip_tags($notifications->name), 20, '...')}}</td>
-            <td>{{ Str::limit(strip_tags($notifications->title), 50, '...') }}</td>
+            <td>{{ Str::limit(strip_tags($notifications->title), 30, '...') }}</td>
+            <td>{{ $notifications->created_at}}</td>
             <td>
             <?php
                 if ($users->user_rule == '0') { ?>

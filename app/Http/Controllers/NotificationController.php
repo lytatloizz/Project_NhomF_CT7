@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 
 class NotificationController extends Controller
@@ -14,7 +15,7 @@ class NotificationController extends Controller
      public function index()
     {
       
-        $notification = Notification::orderBy('name', 'asc')->paginate(5);
+        $notification = Notification::orderBy('created_at', 'desc')->paginate(5);
         $users = Auth::user();
         return view('notification.index', compact('notification', 'users'));
         //return view('notification.index', compact('notification'));
@@ -36,7 +37,7 @@ class NotificationController extends Controller
         Notification::insert([
             'name' => $request->name,
             'title' => $request->title,
-            'created_at'=> date('Y-m-d')
+            'created_at'=> Carbon::now()
         ]);
 
         $notification = array(
