@@ -1,6 +1,6 @@
 @extends('index')
 @section('content')
-<h1>Add Classroom</h1><br>
+<h1>Edit Classroom</h1><br>
 <form method="post" action="/update-Classrooms/{{ $classrooms->classroom_id }}">
     @method('post')
     @csrf
