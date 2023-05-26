@@ -56,7 +56,7 @@
                         <!-- Imgae input -->
                         <div class="form-outline mb-3">
                             <input type="file" name="user_image" class="form-control form-control-md" required />
-                            <label class="form-label" for="form3Example3">Chose Your Avatar</label>
+                            <label class="form-label" for="form3Example3">Choose Your Avatar</label>
                             @if ($errors->has('user_image'))
                             <span class="text-danger">{{ $errors->first('user_image') }}</span>
                             @endif
@@ -68,7 +68,7 @@
                                 <option value="1">Student</option>
                                 <option value="2">Teacher</option>
                             </select>
-                            <label class="form-label" for="rule">Chose your type</label>
+                            <label class="form-label" for="rule">Choose your type</label>
                             @if ($errors->has('user_rule'))
                             <span class="text-danger">{{ $errors->first('user_rule') }}</span>
                             @endif

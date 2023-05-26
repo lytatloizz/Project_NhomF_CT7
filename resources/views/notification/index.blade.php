@@ -32,7 +32,7 @@
         @foreach($notification as $key => $notifications)
         <tr>
             <td>{{$key + 1 }}</td>
-            <td>{{ Str::limit(strip_tags($notifications->name), 10, '...')}}</td>
+            <td>{{ Str::limit(strip_tags($notifications->name), 20, '...')}}</td>
             <td>{{ Str::limit(strip_tags($notifications->title), 50, '...') }}</td>
             <td>
             <?php
