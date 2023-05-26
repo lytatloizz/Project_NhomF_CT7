@@ -1,4 +1,5 @@
-﻿<?php use App\Models\User as ModelsUser;$name = ModelsUser::find(1)->user_name; ?>
+﻿<?php use App\Models\User as ModelsUser;$name = ModelsUser::find(1)->user_name;
+ ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -64,7 +65,7 @@
                         <a href="/register"><i class="fa fa-user "></i>Add new Student </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-info-circle "></i>Notification</a>
+                        <a href="{{route('all.notification')}}"><i class="fa fa-info-circle "></i>Notification</a>
                     </li>
                     <li>
                         <a href="/classrooms"><i class="fa fa-info-circle "></i>List Classroom</a>
